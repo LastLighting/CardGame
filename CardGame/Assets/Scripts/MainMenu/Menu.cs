@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Menu : MonoBehaviour {
 
@@ -32,11 +33,16 @@ public class Menu : MonoBehaviour {
     }
 
     public void play() {
-		playEffect.SetActive(true);
+		playEffect.GetComponent<Image>().color = Color.white; 
 	}
 
-	public void collection() {
-		collectionEffect.SetActive(true);
+    public void collectionDown()
+    {
+        collectionEffect.GetComponent<Image>().color = Color.white;
+    }
+
+    public void collection() {
+
         SceneManager.LoadScene(0);
     }
 
