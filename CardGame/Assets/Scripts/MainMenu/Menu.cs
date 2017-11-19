@@ -43,7 +43,7 @@ public class Menu : MonoBehaviour {
 
     public void collection() {
 
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Collection");
     }
 
 	public void options() {
