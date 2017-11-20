@@ -25,11 +25,14 @@ public class Menu : MonoBehaviour {
 	bool opening = false;
     Vector3 defaultVector1;
     Vector3 defaultVector2;
+	public Text successLogin;
 
     void Start()
     {
         defaultVector1 = transform1.position;
         defaultVector2 = transform3.position;
+	    var user = PlayerPrefs.GetString("LoginUser", "Unknown");
+	    successLogin.text = "Привет, наш альфа-тестер, " + user;
     }
 
     public void play() {
