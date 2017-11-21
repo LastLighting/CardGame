@@ -15,13 +15,22 @@ public class SingUpButton : MonoBehaviour {
 	void Start () {
 		firebaseAuth = FirebaseAuth.DefaultInstance;
 	}
-	
-	public void OnMouseDown()
-	{
-		gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.white;
-	}
 
-	public void OnMouseUp()
+    private IEnumerator changeColor()
+    {
+        gameObject.GetComponentInChildren<SpriteRenderer>().color = new Color32(123, 65, 193, 255);
+        gameObject.GetComponentInChildren<Text>().color = new Color32(123, 65, 193, 255);
+        yield return new WaitForSeconds(0.5f);
+        gameObject.GetComponentInChildren<SpriteRenderer>().color = new Color32(163, 163, 163, 255);
+        gameObject.GetComponentInChildren<Text>().color = Color.white;
+    }
+
+    public void OnMouseDown()
+    {
+        StartCoroutine(changeColor());
+    }
+
+    public void OnMouseUp()
 	{
 		singUp(emailInput.text, passwordInput.text);
 	}
